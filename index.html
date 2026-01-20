@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APVS Brasil - Cotação Online</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Top Bar / Header -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <!-- Using a placeholder for the logo shown in image -->
+                <img src="https://apvs.com.br/wp-content/uploads/2020/09/Logo-APVS-Branca.png" alt="APVS Brasil Logo">
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container hero-container">
+            <!-- Logo moved to extreme left top -->
+            <div class="logo-hero">
+                <img src="modelo/Logo-Deitada-Apvs.png" alt="APVS Brasil Logo" class="logo-img">
+            </div>
+
+            <!-- Right Column: Content -->
+            <div class="hero-content">
+
+                <h2 class="hero-subtitle">CANAL DE COTAÇÕES</h2>
+                <h1>CALCULE O VALOR PARA O SEU VEÍCULO</h1>
+
+                <form class="hero-form">
+                    <input type="text" placeholder="*Veículo - Marca/ Ano / Modelo" required>
+                    <input type="text" placeholder="*Cidade" required>
+                    <input type="tel" id="hero-phone-input" placeholder="*Telefone com DDD" required>
+                    <input type="text" placeholder="*Nome" required>
+                    <button type="submit" class="btn btn-green">AVANÇAR</button>
+                </form>
+
+                <div class="hero-buttons">
+                    <a href="tel:08006054381" class="btn btn-red">GUINCHO / REBOQUE 24H <i
+                            class="fas fa-phone-alt"></i></a>
+                    <a href="tel:40072381" class="btn btn-yellow">2ª VIA BOLETO / CANCELAMENTO <i
+                            class="fas fa-bars"></i></a>
+                    <a href="mailto:inclusaoapvsbrasil@gmail.com" class="btn btn-light-blue">TRABALHE CONOSCO <i
+                            class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Text spanning full width -->
+        <div class="hero-footer-text">
+            <div class="container">
+                <p>Desde 2008 em funcionamento, temos a maior estrutura da América Latina +250Mil associados ativos e
+                    +25Mil Prestadores. Atendimento em todo território nacional.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section (Proteções e Benefícios) -->
+    <section class="benefits-section" id="beneficios">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title">Proteções e Benefícios</h2>
+
+            <!-- Vehicle Tabs -->
+            <div class="vehicle-tabs">
+                <button class="tab-btn active" data-vehicle="carro">Carro</button>
+                <button class="tab-btn" data-vehicle="motos">Motos</button>
+                <button class="tab-btn" data-vehicle="utilitarios">Utilitários</button>
+                <button class="tab-btn" data-vehicle="caminhoes">Caminhões</button>
+            </div>
+
+            <!-- Vehicle Banner Display -->
+            <div class="vehicle-display">
+                <img id="vehicle-banner-img" src="modelo/slid-1-carro-1536x369.png" alt="Proteção Veicular"
+                    class="vehicle-banner">
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <h2 class="section-title">Conheça um pouco mais sobre a APVS</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube-nocookie.com/embed/b7l322TGh6U?rel=0&modestbranding=1"
+                    title="APVS Video" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coverage List Section -->
+    <section class="coverages-section">
+        <div class="container coverage-container">
+            <div class="coverage-left">
+                <h2 class="coverage-title">Quais coberturas<br>APVS oferece</h2>
+                <div class="coverage-image-wrapper">
+                    <img src="modelo/Art-Apvs-carros-Webp.webp" alt="APVS Brasil - Sua Família Protegida">
+                </div>
+            </div>
+
+            <div class="coverage-right">
+                <ul class="coverage-list">
+                    <li><i class="fas fa-check"></i> Cobertura 100% FIPE à vista</li>
+                    <li><i class="fas fa-check"></i> Rastreador</li>
+                    <li><i class="fas fa-check"></i> Válida em todo território nacional</li>
+                    <li><i class="fas fa-check"></i> Roubo / Furto / Incêndio</li>
+                    <li><i class="fas fa-check"></i> Colisão Parcial</li>
+                    <li><i class="fas fa-check"></i> Colisão perda total</li>
+                    <li><i class="fas fa-check"></i> Sem consulta de CEP</li>
+                    <li><i class="fas fa-check"></i> Proteção para Terceiros</li>
+                    <li><i class="fas fa-check"></i> Livre condutor</li>
+                    <li><i class="fas fa-check"></i> Sem consulta ao SPC e SERASA</li>
+                    <li><i class="fas fa-check"></i> Reboque/Guincho 24H em todo Brasil</li>
+                    <li><i class="fas fa-check"></i> Cobertura 100% Fipe para UBER, 99 e APP</li>
+                    <li><i class="fas fa-check"></i> Fenômenos da Natureza: Enchentes, Queda de árvore e Chuva de
+                        granizo</li>
+                    <li><i class="fas fa-check"></i> Assistência 24horas com: Guincho, Chaveiro, Troca de pneu, Pane
+                        Seca, Socorro mecânico, elétrico, Hospedagem, Táxi, Transporte alternativo, Auxílio funeral</li>
+                    <li><i class="fas fa-check"></i> Aceitação de veículo Rebaixado e de Leilão</li>
+                    <li><i class="fas fa-check"></i> Carro reserva, vidros, faróis, lanternas e retrovisores</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="faq-header">
+                <i class="fas fa-shield-alt shield-icon-bg"></i>
+                <h2>Dúvidas sobre a APVS?</h2>
+                <p>Fique atento, aqui respondemos algumas dúvidas sobre a maior associação da América Latina.
+                </p>
+            </div>
+
+            <div class="faq-accordion">
+                <!-- Item 1 -->
+                <div class="faq-item">
+                    <button class="faq-btn">Por que confiar na APVS? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-content">
+                        <p>Você pode confiar na APVS por que são MAIS DE 15 ANOS DE MERCADO. Queremos estabelecer sempre
+                            uma relação positiva com nosso associado, pois priorizamos a qualidade e agilidade no
+                            atendimento. Ao se tornar associado, você vai ficar tranquilo e satisfeito.</p>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="faq-item">
+                    <button class="faq-btn">Quais são as proteções e benefícios que a APVS oferece? <i
+                            class="fas fa-chevron-down"></i></button>
+                    <div class="faq-content">
+                        <p>Cobertura 100% da FIPE, Roubo, Furto, Incêndio, livre de condutor, Colisão, Perda Total,
+                            Fenômenos da Natureza, Cobertura para terceiros, Assistência 24hs, Reboque / Guincho,
+                            Chaveiro, Troca de pneu, Auxílio funeral, Táxi, Transporte alternativo, Socorro mecânico e
+                            elétrico, Auxílio combustível, Assistência residencial, Carro reserva, proteção de vidros,
+                            Aplicativo APVS disponível, Atendimento em todo BRASIL, SEM FIDELIDADE e Muitos mais…</p>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="faq-item">
+                    <button class="faq-btn">Divido o carro com alguém, isso é um problema? <i
+                            class="fas fa-chevron-down"></i></button>
+                    <div class="faq-content">
+                        <p>A proteção é para o seu veículo, qualquer condutor habilitado terá o direito de utilização
+                            dos benefícios caso seja necessário. Essa é uma das formas que encontramos para facilitar e
+                            oferecer a melhor proteção para o seu veículo.</p>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="faq-item">
+                    <button class="faq-btn">Tenho restrição no meu nome, posso fazer proteção? <i
+                            class="fas fa-chevron-down"></i></button>
+                    <div class="faq-content">
+                        <p>Na APVS você protege seu veículo sem burocracia. Não consultamos SPC/SERASA, é só apresentar
+                            os documentos e pronto.</p>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="faq-item">
+                    <button class="faq-btn">O que é proteção veicular? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-content">
+                        <p>A proteção veicular é um serviço oferecido por cooperativas e associações visando proteger os
+                            veículos de seus associados em situações como acidentes, colisão, fenômenos naturais, roubos
+                            ou furtos. É uma forma confiável e econômica de garantir a segurança do seu veículo.</p>
+                    </div>
+                </div>
+                <!-- Item 6 -->
+                <div class="faq-item">
+                    <button class="faq-btn">Como funciona a proteção veicular? <i
+                            class="fas fa-chevron-down"></i></button>
+                    <div class="faq-content">
+                        <p>Para desfrutar dos benefícios exclusivos da proteção veicular, é necessário se tornar um
+                            associado de uma cooperativa ou associação. Isso envolve o pagamento de uma taxa de adesão
+                            para contratar e garantir o direito as coberturas, e no mês seguinte você começa a pagar a
+                            mensalidade de acordo com a sua cotação, sem fidelidade.</p>
+                    </div>
+                </div>
+                <!-- Item 7 -->
+                <div class="faq-item">
+                    <button class="faq-btn">Por que escolher a APVS? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-content">
+                        <p>Quando o assunto é segurança e tranquilidade, a APVS proteção veicular é a melhor escolha,
+                            são mais de 15 anos prestando serviço de qualidade com preços acessíveis e cobertura em todo
+                            território nacional, aqui você encontra o melhor custo benefício, APVS: Seguro e Confiável.
+                        </p>
+                    </div>
+                </div>
+                <!-- Item 8 -->
+                <div class="faq-item">
+                    <button class="faq-btn">Sobre a APVS <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-content">
+                        <p>APVS Brasil é a maior proteção veicular da américa latina, contando com mais de 5 mil
+                            funcionários diretos e indiretos tendo sua fundação em 2008 e segue tendo o melhor
+                            atendimento e avaliação de todo Brasil.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Features -->
+    <section class="bottom-features">
+        <div class="features-banner-wrapper">
+            <img src="modelo/3-escudos-1536x224.png"
+                alt="Sem análise de perfil - Proteção que cabe no bolso - Burocracia Zero" class="features-banner-img">
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="depoimentos-section">
+        <div class="container">
+            <h2 class="title-depoimentos">Depoimentos dos Associados</h2>
+            <!-- Testimonials Carousel -->
+            <div class="carousel-container">
+                <div class="carousel-track-container">
+                    <ul class="carousel-track" id="testimonial-track">
+                        <li class="carousel-slide current-slide">
+                            <img src="modelo/Webp-Depoimento-1.webp" alt="Depoimento 1">
+                        </li>
+                        <li class="carousel-slide">
+                            <img src="modelo/Webp-Depoimento-2.webp" alt="Depoimento 2">
+                        </li>
+                        <li class="carousel-slide">
+                            <img src="modelo/Webp-Depoimento-3.webp" alt="Depoimento 3">
+                        </li>
+                        <li class="carousel-slide">
+                            <img src="modelo/Webp-Depoimento-4.webp" alt="Depoimento 4">
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="carousel-nav">
+                    <button class="carousel-indicator current-slide"></button>
+                    <button class="carousel-indicator"></button>
+                    <button class="carousel-indicator"></button>
+                    <button class="carousel-indicator"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Extra Video Section -->
+    <section class="video-section" style="background-color: #fff; padding-top: 0;">
+        <div class="container">
+            <div class="video-container">
+                <iframe src="https://www.youtube-nocookie.com/embed/uvtXsvjKz7E?rel=0&modestbranding=1"
+                    title="APVS Video" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-info">
+                <p class="institucional-title">INSTITUCIONAL</p>
+                <p class="cnpj">13.866.295/0001-25</p>
+                <p class="company-name">ASSOCIACAO DE PROTECAO VEICULAR E SERVICOS SOCIAIS</p>
+
+                <div class="footer-block">
+                    <p class="location-title">SEDE RIO DE JANEIRO</p>
+                    <p>Av. Brasil, 15148 – Vigário Geral, Rio de Janeiro – RJ, 21241-050</p>
+                </div>
+
+                <div class="footer-block">
+                    <p class="location-title">SEDE SÃO PAULO</p>
+                    <p>Edifício Platina – R. Bom Sucesso, 220 – Cidade Mãe do Céu, Tatuapé, São Paulo – SP, 03273-200
+                    </p>
+                </div>
+
+                <div class="footer-block">
+                    <p class="location-title">SEDE MINAS GERAIS</p>
+                    <p>Av. Pres. Antônio Carlos, 7367 – São José, Belo Horizonte – MG, 31275-013</p>
+                </div>
+
+                <div class="footer-block">
+                    <p>Central de Atendimento: 4007-2382</p>
+                    <p>Para Assistência 24 Horas: 0800 605 4381</p>
+                    <p>Cotação e Vendas:</p>
+                    <p>inclusaoapvsbrasil@gmail.com</p>
+                </div>
+
+                <div class="footer-links">
+                    <a href="politica-privacidade.html">política de privacidade</a> | <a href="termos-uso.html">termos
+                        de uso</a>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright bar removed as it wasn't in the clean text image, or we can keep it subtle. The image ended at privacy policy. -->
+    </footer>
+
+    <!-- Form Modal (Hidden by default, triggered by buttons) -->
+    <div id="cotacao" class="quote-form-section">
+        <div class="container">
+            <div class="form-wrapper">
+                <h3>Faça sua Cotação Agora</h3>
+                <form>
+                    <input type="text" placeholder="Seu Nome" required>
+                    <input type="text" placeholder="Seu Telefone" required>
+                    <input type="email" placeholder="Seu E-mail" required>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Consent Popup -->
+    <div id="cookie-popup" class="cookie-popup">
+        <div class="cookie-content">
+            <p>Utilizamos cookies para lhe proporcionar a melhor experiência no nosso site. Ao continuar a navegar, você
+                concorda com a nossa <a href="politica-privacidade.html">Política de Privacidade</a>.</p>
+            <button id="accept-cookies" class="btn-cookie">OK</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
