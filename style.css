@@ -270,20 +270,25 @@ body {
 /* Cookie Popup */
 .cookie-popup {
     position: fixed;
-    bottom: -100px;
+    bottom: -200px;
     left: 0;
     width: 100%;
-    background-color: #fff;
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
     padding: 20px;
     z-index: 9999;
-    transition: bottom 0.5s ease-in-out;
+    transition: bottom 0.5s ease-in-out, opacity 0.5s ease-in-out;
     display: flex;
     justify-content: center;
+    opacity: 0;
+    border-top: 1px solid rgba(1, 58, 128, 0.1);
 }
 
 .cookie-popup.show {
     bottom: 0;
+    opacity: 1;
 }
 
 .cookie-content {
@@ -300,6 +305,7 @@ body {
 .cookie-content p {
     margin: 0;
     line-height: 1.5;
+    color: rgba(0, 0, 0, 0.8);
 }
 
 .cookie-content a {
@@ -316,17 +322,29 @@ body {
     border-radius: 5px;
     font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .btn-cookie:hover {
     background-color: #059018;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(7, 179, 30, 0.3);
 }
 
 @media (max-width: 768px) {
     .cookie-content {
         flex-direction: column;
         text-align: center;
+    }
+
+    .cookie-popup {
+        padding: 15px;
+    }
+
+    .btn-cookie {
+        width: 100%;
+        max-width: 200px;
     }
 }
 
@@ -369,6 +387,11 @@ body {
 
     .hero-content-col h1 {
         font-size: 28px;
+    }
+
+    .hero-subtitle {
+        font-size: 14px;
+        /* Reduced from 20px for mobile */
     }
 }
 
@@ -479,28 +502,6 @@ body {
 .feature-text p {
     flex-direction: column;
     gap: 30px;
-}
-
-.features-column.left .feature-card,
-.features-column.right .feature-card {
-    margin: 0;
-    max-width: 100%;
-    flex-direction: row;
-    /* Keep icon left on mobile usually looks better? Or Keep consistent? Let's keep consistent layout but stacked */
-}
-
-.features-column.left,
-.features-column.right {
-    align-items: center;
-    width: 100%;
-    gap: 20px;
-}
-
-.features-column.right .feature-card {
-    flex-direction: row-reverse;
-    /* Flip right cards on mobile so icon is left? Standard mobile lists usually have icon left */
-    /* Let's stick to the design even on tablet, but on mobile... */
-}
 }
 
 /* End of max-width: 1024px */
