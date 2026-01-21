@@ -1,5 +1,36 @@
+# Sistema operacional
 .DS_Store
+
+# Dependências
 node_modules/
+
+# Logs
 *.log
+
+# Variáveis de ambiente
 .env
 .env.local
+
+# Arquivos temporários e intermediários (conforme Agents.md)
+.tmp/
+*.tmp
+
+# Credenciais Google OAuth
+credentials.json
+token.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo

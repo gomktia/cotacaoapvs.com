@@ -92,8 +92,8 @@ body {
 
 .hero-subtitle {
     color: #ffff00;
-    font-size: 20px;
-    /* Small eyebrow title */
+    font-size: 18px;
+    /* Reduced size */
     font-weight: 700;
     text-transform: uppercase;
     margin-bottom: 5px;
@@ -386,12 +386,27 @@ body {
     }
 
     .hero-content-col h1 {
-        font-size: 28px;
+        font-size: 14px;
+        /* Reduced by half from 28px for mobile */
+    }
+
+    .hero-content h1 {
+        font-size: 14px;
+        /* Reduced by half from 48px for mobile */
     }
 
     .hero-subtitle {
-        font-size: 14px;
-        /* Reduced from 20px for mobile */
+        font-size: 16px;
+        /* Adjusted for mobile readability */
+        letter-spacing: 1.5px;
+        margin-bottom: 8px;
+    }
+
+    .logo-hero {
+        margin-top: -10px;
+        /* Move logo closer to top */
+        margin-bottom: 10px;
+        /* Reduce bottom spacing */
     }
 }
 
