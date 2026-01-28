@@ -48,69 +48,91 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Carousel Logic
-    document.addEventListener('DOMContentLoaded', function () {
-        const track = document.getElementById('testimonial-track');
-        if (!track) return;
-
-        const slides = Array.from(track.children);
-        const dots = Array.from(document.querySelectorAll('.carousel-indicator'));
-        const slideWidth = slides[0].getBoundingClientRect().width;
-
-        // Arrange slides next to each other
-        // Note: CSS flex handles this, but we need to know how much to translate
-        // However, since it's responsive (1 vs 3), we need to calculate 'pages' or simple scroll steps
-
-        // Simple Index based approach (showing 1 by 1 or groups)
-        // Given the images are pre-made cards, we probably want to scroll one 'card' width at a time
-
+    const track = document.getElementById('testimonial-track');
+    if (track) {
+        let slides = Array.from(track.children);
+        let dots = Array.from(document.querySelectorAll('.carousel-indicator'));
         let currentIndex = 0;
+        let slideInterval;
+        let startX = 0;
+        let isDragging = false;
 
-        // Update slide width on resize
-        window.addEventListener('resize', () => {
-            // reset to 0 to be safe or recalculate
-        });
-
-        const moveToSlide = (index) => {
-            // If index is out of bounds, loop
-            if (index < 0) index = slides.length - 1;
-            if (index >= slides.length) index = 0;
-
-            // Check window width to decide how many to scroll
-            // On Desktop, we show 3. If we have 4 items, we can scroll to index 0 (shows 1,2,3) and index 1 (shows 2,3,4)? 
-            // Or pagination sets?
-            // Let's assume standard behavior: Scroll 1 item at a time
-
-            const amountToMove = slides[0].getBoundingClientRect().width;
-            track.style.transform = 'translateX(-' + (amountToMove * index) + 'px)';
-
+        const updateSlidePosition = () => {
+            const slideWidth = slides[0].getBoundingClientRect().width;
+            track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+            
             // Update dots
             dots.forEach(d => d.classList.remove('current-slide'));
-            if (dots[index]) dots[index].classList.add('current-slide');
+            if (dots[currentIndex]) {
+                dots[currentIndex].classList.add('current-slide');
+            }
+        };
 
+        const moveToSlide = (index) => {
+            if (index < 0) index = slides.length - 1;
+            if (index >= slides.length) index = 0;
             currentIndex = index;
-        }
+            updateSlidePosition();
+        };
 
-        // Auto Play
-        setInterval(() => {
-            // On desktop with 3 visible, we might want to loop differently?
-            // simple loop for now
-            let msgWidth = slides[0].getBoundingClientRect().width;
-            let trackWidth = track.scrollWidth;
-            let containerWidth = track.parentElement.getBoundingClientRect().width;
+        const startAutoPlay = () => {
+            stopAutoPlay(); // Clear any existing
+            slideInterval = setInterval(() => {
+                moveToSlide(currentIndex + 1);
+            }, 3000); // 3 seconds
+        };
 
-            // If we reached the end visually
-            // (currentIndex + visibleItems) >= totalItems
+        const stopAutoPlay = () => {
+            clearInterval(slideInterval);
+        };
 
-            moveToSlide(currentIndex + 1);
-        }, 4000);
+        // Resize Listener
+        window.addEventListener('resize', () => {
+            updateSlidePosition();
+        });
 
-        // Dot click
+        // Loop / Navigation
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
+                stopAutoPlay();
                 moveToSlide(index);
+                startAutoPlay(); // Restart after interaction
             });
         });
-    });
+
+        // Touch / Swipe Support
+        track.addEventListener('touchstart', (e) => {
+            stopAutoPlay();
+            startX = e.touches[0].clientX;
+            isDragging = true;
+        }, { passive: true });
+
+        track.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            // Optional: Real-time drag effect could go here
+        }, { passive: true });
+
+        track.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
+            const endX = e.changedTouches[0].clientX;
+            const diff = startX - endX;
+
+            if (Math.abs(diff) > 50) { // Threshold
+                if (diff > 0) {
+                    moveToSlide(currentIndex + 1); // Swipe Left -> Next
+                } else {
+                    moveToSlide(currentIndex - 1); // Swipe Right -> Prev
+                }
+            }
+            
+            isDragging = false;
+            startAutoPlay();
+        });
+
+        // Init
+        setTimeout(updateSlidePosition, 100); // Initial adjustment
+        startAutoPlay();
+    }
     // Vehicle Tabs Logic
     const tabBtns = document.querySelectorAll('.tab-btn');
     const mainVehicleImg = document.getElementById('vehicle-banner-img');
