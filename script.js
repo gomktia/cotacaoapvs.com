@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const updateSlidePosition = () => {
             const slideWidth = slides[0].getBoundingClientRect().width;
             track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
-            
+
             // Update dots
             dots.forEach(d => d.classList.remove('current-slide'));
             if (dots[currentIndex]) {
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     moveToSlide(currentIndex - 1); // Swipe Right -> Prev
                 }
             }
-            
+
             isDragging = false;
             startAutoPlay();
         });
@@ -171,7 +171,25 @@ document.addEventListener('DOMContentLoaded', function () {
         heroForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
-            // Redirect to WhatsApp with the requested message
+            // Collect form data
+            const formData = new FormData(heroForm);
+            const data = Object.fromEntries(formData.entries());
+
+            // Webhook URL
+            const webhookUrl = "https://n8nwh.automatusolutions.net/webhook/apvs-google-calif";
+
+            // Send data to webhook
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => console.log('Webhook success:', response))
+                .catch(error => console.error('Webhook error:', error));
+
+            // Redirect to WhatsApp with the requested message (Preserving existing flow)
             const whatsappUrl = "https://api.whatsapp.com/send?phone=553171462918&text=Ol%C3%A1,%20preciso%20de%20uma%20cota%C3%A7%C3%A3o%20para%20o%20meu%20ve%C3%ADculo,%20vim%20pelo%20site";
             window.open(whatsappUrl, '_blank');
         });
@@ -234,75 +252,75 @@ faqBtns.forEach(btn => {
 
 // Phone Validation for Hero Form (11 digits max, numeric only)
 function enforceNumericOnly(inputElement) {
-  let value = inputElement.value.replace(/[^0-9]/g, "");
-  const maxLength = 11;
-  if (value.length > maxLength) {
-    value = value.slice(0, maxLength);
-  }
-  inputElement.value = value;
+    let value = inputElement.value.replace(/[^0-9]/g, "");
+    const maxLength = 11;
+    if (value.length > maxLength) {
+        value = value.slice(0, maxLength);
+    }
+    inputElement.value = value;
 }
 
 function showPhoneError(inputElement, message) {
-  let errorDiv = inputElement.parentNode.querySelector(".phone-length-error");
-  if (!errorDiv) {
-    errorDiv = document.createElement("div");
-    errorDiv.className = "phone-length-error";
-    errorDiv.style.color = "red";
-    errorDiv.style.fontSize = "12px";
-    errorDiv.style.marginTop = "5px";
-    inputElement.parentNode.insertBefore(errorDiv, inputElement.nextSibling);
-  }
-  errorDiv.textContent = message;
-  inputElement.style.borderColor = "red";
+    let errorDiv = inputElement.parentNode.querySelector(".phone-length-error");
+    if (!errorDiv) {
+        errorDiv = document.createElement("div");
+        errorDiv.className = "phone-length-error";
+        errorDiv.style.color = "red";
+        errorDiv.style.fontSize = "12px";
+        errorDiv.style.marginTop = "5px";
+        inputElement.parentNode.insertBefore(errorDiv, inputElement.nextSibling);
+    }
+    errorDiv.textContent = message;
+    inputElement.style.borderColor = "red";
 }
 
 function clearPhoneError(inputElement) {
-  let errorDiv = inputElement.parentNode.querySelector(".phone-length-error");
-  if (errorDiv) {
-    errorDiv.textContent = "";
-  }
-  inputElement.style.borderColor = "";
+    let errorDiv = inputElement.parentNode.querySelector(".phone-length-error");
+    if (errorDiv) {
+        errorDiv.textContent = "";
+    }
+    inputElement.style.borderColor = "";
 }
 
 function setupHeroPhoneValidation() {
-  const phoneInput = document.getElementById("hero-phone-input");
+    const phoneInput = document.getElementById("hero-phone-input");
 
-  if (phoneInput) {
-    phoneInput.setAttribute("inputmode", "numeric");
-    phoneInput.removeAttribute("pattern");
+    if (phoneInput) {
+        phoneInput.setAttribute("inputmode", "numeric");
+        phoneInput.removeAttribute("pattern");
 
-    phoneInput.addEventListener("input", function () {
-      enforceNumericOnly(this);
-      const phoneNumber = this.value.replace(/[^0-9]/g, "");
-      if (phoneNumber.length > 0 && phoneNumber.length < 8) {
-        showPhoneError(this, "O telefone deve ter pelo menos 8 dígitos.");
-      } else {
-        clearPhoneError(this);
-      }
-    });
+        phoneInput.addEventListener("input", function () {
+            enforceNumericOnly(this);
+            const phoneNumber = this.value.replace(/[^0-9]/g, "");
+            if (phoneNumber.length > 0 && phoneNumber.length < 8) {
+                showPhoneError(this, "O telefone deve ter pelo menos 8 dígitos.");
+            } else {
+                clearPhoneError(this);
+            }
+        });
 
-    const formElement = phoneInput.closest("form");
+        const formElement = phoneInput.closest("form");
 
-    if (formElement) {
-      formElement.addEventListener("submit", function (event) {
-        const phoneNumber = phoneInput.value.replace(/[^0-9]/g, "");
-        if (phoneNumber.length < 8) {
-          event.preventDefault();
-          event.stopPropagation();
-          showPhoneError(phoneInput, "O telefone deve ter pelo menos 8 dígitos.");
-          console.warn(`Envio bloqueado: Telefone ${phoneNumber} tem menos de 8 dígitos.`);
-        } else {
-          clearPhoneError(phoneInput);
+        if (formElement) {
+            formElement.addEventListener("submit", function (event) {
+                const phoneNumber = phoneInput.value.replace(/[^0-9]/g, "");
+                if (phoneNumber.length < 8) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    showPhoneError(phoneInput, "O telefone deve ter pelo menos 8 dígitos.");
+                    console.warn(`Envio bloqueado: Telefone ${phoneNumber} tem menos de 8 dígitos.`);
+                } else {
+                    clearPhoneError(phoneInput);
+                }
+            }, true); // Use capture to run before other submit handlers
+            console.log("Validação de telefone aplicada ao formulário hero.");
         }
-      }, true); // Use capture to run before other submit handlers
-      console.log("Validação de telefone aplicada ao formulário hero.");
     }
-  }
 }
 
 // Run after DOM is ready
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", setupHeroPhoneValidation);
+    document.addEventListener("DOMContentLoaded", setupHeroPhoneValidation);
 } else {
-  setupHeroPhoneValidation();
+    setupHeroPhoneValidation();
 }
