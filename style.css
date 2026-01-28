@@ -411,6 +411,15 @@ body {
         margin-bottom: 8px;
     }
 
+    .hero-footer-text {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        margin-top: 20px;
+        background-color: #000;
+        /* Solid black or dark to match design */
+    }
+
     .logo-hero {
         margin-top: 0;
         margin-bottom: 0;
