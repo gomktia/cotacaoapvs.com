@@ -368,6 +368,8 @@ body {
 
     .hero-section {
         min-height: auto;
+        flex-direction: column;
+        /* Stack container and footer text vertically */
         padding-top: 10px;
         /* Move logo closer to top (overriding global 60px) */
         /* Mobile background fit - prioritize top (face) and center/right alignment */
@@ -377,7 +379,8 @@ body {
         background-image:
             linear-gradient(to bottom, rgba(1, 42, 94, 0.4) 0%, rgba(1, 58, 128, 0.95) 70%),
             url('modelo/atendente_flipped.png');
-        padding-bottom: 20px;
+        padding-bottom: 0;
+        /* Clear padding so footer text sits at very bottom if needed, or keep small spacing */
     }
 
     .hero-container {
