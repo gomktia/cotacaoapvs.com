@@ -368,25 +368,29 @@ body {
 
     .hero-section {
         min-height: auto;
+        padding-top: 10px;
+        /* Move logo closer to top (overriding global 60px) */
         /* Mobile background fit - prioritize top (face) and center/right alignment */
-        background-position: center top !important; 
+        background-position: center top !important;
         background-size: cover;
         /* Vertical gradient for mobile to avoid side-shadowing */
-        background-image: 
-            linear-gradient(to bottom, rgba(1, 42, 94, 0.6) 0%, rgba(1, 58, 128, 0.9) 80%),
+        background-image:
+            linear-gradient(to bottom, rgba(1, 42, 94, 0.4) 0%, rgba(1, 58, 128, 0.95) 70%),
             url('modelo/atendente_flipped.png');
         padding-bottom: 20px;
     }
 
-    .hero-image-col {
-        order: -1;
-        /* Image first? Or change to 1 for after content? Usually top on mobile for hero images */
-        margin-bottom: 20px;
+    .hero-container {
+        padding-top: 0;
     }
 
-    .attendant-img {
-        max-height: 300px;
-        /* Smaller image on mobile */
+    /* Push text down to reveal the agent's face between logo and text */
+    .hero-content {
+        margin-top: 160px;
+    }
+
+    .hero-image-col {
+        display: none;
     }
 
     .hero-content-col {
@@ -395,26 +399,22 @@ body {
 
     .hero-content-col h1 {
         font-size: 14px;
-        /* Reduced by half from 28px for mobile */
     }
 
     .hero-content h1 {
         font-size: 14px;
-        /* Reduced by half from 48px for mobile */
     }
 
     .hero-subtitle {
         font-size: 16px;
-        /* Adjusted for mobile readability */
         letter-spacing: 1.5px;
         margin-bottom: 8px;
     }
 
     .logo-hero {
-        margin-top: -10px;
-        /* Move logo closer to top */
-        margin-bottom: 10px;
-        /* Reduce bottom spacing */
+        margin-top: 0;
+        margin-bottom: 0;
+        /* Logo stays at top */
     }
 }
 
