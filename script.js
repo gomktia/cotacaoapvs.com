@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 .catch(error => console.error('Webhook error:', error));
 
             // Redirect to WhatsApp with the requested message (Preserving existing flow)
-            const whatsappUrl = "https://api.whatsapp.com/send?phone=553171462918&text=Ol%C3%A1,%20preciso%20de%20uma%20cota%C3%A7%C3%A3o%20para%20o%20meu%20ve%C3%ADculo,%20vim%20pelo%20site";
+            const whatsappUrl = "https://api.whatsapp.com/send?phone=553172015324&text=Ol%C3%A1,%20preciso%20de%20uma%20cota%C3%A7%C3%A3o%20para%20o%20meu%20ve%C3%ADculo,%20vim%20pelo%20site";
             window.open(whatsappUrl, '_blank');
         });
     }
