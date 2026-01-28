@@ -368,6 +368,14 @@ body {
 
     .hero-section {
         min-height: auto;
+        /* Mobile background fit - prioritize top (face) and center/right alignment */
+        background-position: center top !important; 
+        background-size: cover;
+        /* Vertical gradient for mobile to avoid side-shadowing */
+        background-image: 
+            linear-gradient(to bottom, rgba(1, 42, 94, 0.6) 0%, rgba(1, 58, 128, 0.9) 80%),
+            url('modelo/atendente_flipped.png');
+        padding-bottom: 20px;
     }
 
     .hero-image-col {
