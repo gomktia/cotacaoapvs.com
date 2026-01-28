@@ -373,7 +373,8 @@ body {
         padding-top: 10px;
         /* Move logo closer to top (overriding global 60px) */
         /* Mobile background fit - prioritize top (face) and center/right alignment */
-        background-position: center top !important;
+        /* Shift up by 50px to reduce headroom and center face */
+        background-position: center -50px !important;
         background-size: cover;
         /* Vertical gradient for mobile to avoid side-shadowing */
         background-image:
