@@ -37,8 +37,8 @@ body {
     /* Background Image Flipped (Agent Right) with Blue Overlay */
     /* Gradient: Darker on left (for text), Lighter/Transparent on right (for agent) */
     background:
-        linear-gradient(to right, rgba(1, 42, 94, 0.95) 0%, rgba(1, 58, 128, 0.7) 60%, rgba(1, 58, 128, 0.3) 100%),
-        url('modelo/atendente_flipped.png');
+        linear-gradient(to right, rgba(1, 42, 94, 0.95) 0%, rgba(1, 58, 128, 0.7) 60%, rgba(1, 58, 128, 0.1) 100%),
+        url('modelo/atendente1.jpg');
     background-size: cover;
     background-position: center right;
     /* Pin agent to right */
@@ -372,14 +372,13 @@ body {
         /* Stack container and footer text vertically */
         padding-top: 10px;
         /* Move logo closer to top (overriding global 60px) */
-        /* Mobile background fit - prioritize top (face) and center/right alignment */
-        /* Shift up by 50px to reduce headroom and center face */
-        background-position: center -50px !important;
+        /* Mobile background fit - prioritize top (face) and center alignment */
+        background-position: center top !important;
         background-size: cover;
         /* Vertical gradient for mobile to avoid side-shadowing */
         background-image:
-            linear-gradient(to bottom, rgba(1, 42, 94, 0.4) 0%, rgba(1, 58, 128, 0.95) 70%),
-            url('modelo/atendente_flipped.png');
+            linear-gradient(to bottom, rgba(1, 42, 94, 0.4) 0%, rgba(1, 58, 128, 0.1) 40%, rgba(1, 58, 128, 0.95) 85%),
+            url('modelo/atendente1.jpg');
         padding-bottom: 0;
         /* Clear padding so footer text sits at very bottom if needed, or keep small spacing */
     }
@@ -389,8 +388,9 @@ body {
     }
 
     /* Push text down to reveal the agent's face between logo and text */
+    /* Increased to 220px to effectively show the face below the logo and above the form */
     .hero-content {
-        margin-top: 160px;
+        margin-top: 220px;
     }
 
     .hero-image-col {
