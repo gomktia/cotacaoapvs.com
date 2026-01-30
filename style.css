@@ -388,9 +388,9 @@ body {
     }
 
     /* Push text down to reveal the agent's face between logo and text */
-    /* Increased to 220px to effectively show the face below the logo and above the form */
+    /* Reduced margin to bring content up */
     .hero-content {
-        margin-top: 220px;
+        margin-top: 180px;
     }
 
     .hero-image-col {
@@ -406,11 +406,11 @@ body {
     }
 
     .hero-content h1 {
-        font-size: 14px;
+        font-size: 20px;
     }
 
     .hero-subtitle {
-        font-size: 16px;
+        font-size: 18px;
         letter-spacing: 1.5px;
         margin-bottom: 8px;
     }
