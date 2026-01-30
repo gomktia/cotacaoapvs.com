@@ -372,9 +372,9 @@ body {
         /* Stack container and footer text vertically */
         padding-top: 10px;
         /* Move logo closer to top (overriding global 60px) */
-        /* Mobile background fit - prioritize top (face) and shift right (83%) to align subject */
-        background-position: 83% top !important;
-        background-size: cover;
+        /* Mobile background fit - prioritize top (face) and shift right (55%) to align subject - reduced size */
+        background-position: 55% 10% !important;
+        background-size: 130% auto;
         /* Vertical gradient for mobile to avoid side-shadowing */
         background-image:
             linear-gradient(to bottom, rgba(1, 42, 94, 0.4) 0%, rgba(1, 58, 128, 0.1) 40%, rgba(1, 58, 128, 0.95) 85%),
