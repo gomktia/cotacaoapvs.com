@@ -372,12 +372,12 @@ body {
         /* Stack container and footer text vertically */
         padding-top: 10px;
         /* Move logo closer to top (overriding global 60px) */
-        /* Mobile background fit - prioritize top (face) and shift right (55%) to align subject - reduced size */
-        background-position: 55% 10% !important;
+        /* Mobile background fit - prioritize top (face) and center alignment (50%) */
+        background-position: center 10% !important;
         background-size: 130% auto;
-        /* Vertical gradient for mobile to avoid side-shadowing */
+        /* Vertical gradient for mobile: Stronger blue mask as requested */
         background-image:
-            linear-gradient(to bottom, rgba(1, 42, 94, 0.4) 0%, rgba(1, 58, 128, 0.1) 40%, rgba(1, 58, 128, 0.95) 85%),
+            linear-gradient(to bottom, rgba(1, 42, 94, 0.6) 0%, rgba(1, 58, 128, 0.5) 45%, rgba(1, 58, 128, 0.95) 90%),
             url('modelo/atendente1.jpg');
         padding-bottom: 0;
         /* Clear padding so footer text sits at very bottom if needed, or keep small spacing */
