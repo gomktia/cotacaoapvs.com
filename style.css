@@ -388,9 +388,9 @@ body {
     }
 
     /* Push text down to reveal the agent's face between logo and text */
-    /* Reduced margin to bring content up */
+    /* Reduced margin to bring content up further to cover image cut */
     .hero-content {
-        margin-top: 180px;
+        margin-top: 130px;
     }
 
     .hero-image-col {
