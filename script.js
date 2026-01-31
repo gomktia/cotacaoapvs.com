@@ -191,6 +191,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Redirect to WhatsApp with the requested message (Preserving existing flow)
             const whatsappUrl = "https://api.whatsapp.com/send?phone=553172015324&text=Ol%C3%A1,%20preciso%20de%20uma%20cota%C3%A7%C3%A3o%20para%20o%20meu%20ve%C3%ADculo,%20vim%20pelo%20site";
+            
+            // GTM DataLayer Push
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'whatsapp_form_submit',
+                'destination_url': whatsappUrl,
+                'form_location': 'hero_section'
+            });
+
             window.open(whatsappUrl, '_blank');
         });
     }
