@@ -173,7 +173,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Collect form data
             const formData = new FormData(heroForm);
-            const data = Object.fromEntries(formData.entries());
+            const now = new Date();
+            const data = {
+                "Modelo do Veículo": formData.get('veiculo'),
+                "Cidade": formData.get('cidade'),
+                "Telefone": formData.get('telefone'),
+                "Nome Completo": formData.get('nome'),
+                "Data": now.toLocaleDateString('pt-BR'),
+                "Horário": now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }),
+                "URL da página": window.location.href,
+                "Agente de usuário": navigator.userAgent,
+                "form_id": "hero-form-cotacao",
+                "form_name": "Formulário cotacaoapvs.com"
+            };
 
             // Webhook URL
             const webhookUrl = "https://n8nwh.automatusolutions.net/webhook/apvs-google-calif";
