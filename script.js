@@ -201,6 +201,27 @@ document.addEventListener('DOMContentLoaded', function () {
                 .then(response => console.log('Webhook success:', response))
                 .catch(error => console.error('Webhook error:', error));
 
+            // Send email using FormSubmit (in parallel)
+            fetch("https://formsubmit.co/ajax/inclusaoapvsbrasil@gmail.com", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    _subject: "Nova Cotação Pelo Site APVS",
+                    "Nome": formData.get('nome'),
+                    "Telefone": formData.get('telefone'),
+                    "Cidade": formData.get('cidade'),
+                    "Veículo": formData.get('veiculo'),
+                    "Data": now.toLocaleDateString('pt-BR'),
+                    "Horário": now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })
+                })
+            })
+                .then(response => response.json())
+                .then(data => console.log('Email success:', data))
+                .catch(error => console.error('Email error:', error));
+
             // Redirect to WhatsApp with the requested message (Preserving existing flow)
             const whatsappUrl = "https://api.whatsapp.com/send?phone=553172015324&text=Ol%C3%A1,%20preciso%20de%20uma%20cota%C3%A7%C3%A3o%20para%20o%20meu%20ve%C3%ADculo,%20vim%20pelo%20site";
 
